@@ -345,6 +345,189 @@
         "hash": "ReadRangeConnections`1_1|DataTable|cATBDEm2PnuR2chRoLIhD4qdmTNAYjGq6gOPGXL2eE",
         "assemblyName": "Studio.Generated.TypedDataTable3"
       }
+    },
+    {
+      "providerName": "TypedDataTable",
+      "typedDataTableDto": {
+        "id": 4,
+        "idRef": "ReadRangeConnections`1_1",
+        "hash": "ReadRangeConnections`1_1|DataTable|pSfxj3A40TJyhHEal85S0c77cdzXHXUfnmtTd3ak",
+        "dataType": "System.Data.DataTable, System.Data.Common",
+        "columns": [
+          {
+            "columnName": "Hora_Registrx ",
+            "dataType": "System.String, System.Private.CoreLib",
+            "name": "Hora_Registrx "
+          },
+          {
+            "columnName": "oficina",
+            "dataType": "System.String, System.Private.CoreLib",
+            "name": "oficina"
+          },
+          {
+            "columnName": "Robot",
+            "dataType": "System.String, System.Private.CoreLib",
+            "name": "Robot"
+          },
+          {
+            "columnName": "Cedula",
+            "dataType": "System.String, System.Private.CoreLib",
+            "name": "Cedula"
+          },
+          {
+            "columnName": "Tipo_documento",
+            "dataType": "System.String, System.Private.CoreLib",
+            "name": "Tipo_documento"
+          },
+          {
+            "columnName": "Estado_Adress",
+            "dataType": "System.String, System.Private.CoreLib",
+            "name": "Estado_Adress"
+          },
+          {
+            "columnName": "Apellido_Adress",
+            "dataType": "System.String, System.Private.CoreLib",
+            "name": "Apellido_Adress"
+          },
+          {
+            "columnName": "Entidad_Adress",
+            "dataType": "System.String, System.Private.CoreLib",
+            "name": "Entidad_Adress"
+          },
+          {
+            "columnName": "PDF_Adress",
+            "dataType": "System.String, System.Private.CoreLib",
+            "name": "PDF_Adress"
+          },
+          {
+            "columnName": "Fecha_Adress",
+            "dataType": "System.String, System.Private.CoreLib",
+            "name": "Fecha_Adress"
+          },
+          {
+            "columnName": "Estado_Policivo",
+            "dataType": "System.String, System.Private.CoreLib",
+            "name": "Estado_Policivo"
+          },
+          {
+            "columnName": "Anotacion_Policivo",
+            "dataType": "System.String, System.Private.CoreLib",
+            "name": "Anotacion_Policivo"
+          },
+          {
+            "columnName": "PDF_Policivo",
+            "dataType": "System.String, System.Private.CoreLib",
+            "name": "PDF_Policivo"
+          },
+          {
+            "columnName": "Estado_OFAC",
+            "dataType": "System.String, System.Private.CoreLib",
+            "name": "Estado_OFAC"
+          },
+          {
+            "columnName": "Anotacion_OFAC",
+            "dataType": "System.String, System.Private.CoreLib",
+            "name": "Anotacion_OFAC"
+          },
+          {
+            "columnName": "PDF_OFAC",
+            "dataType": "System.String, System.Private.CoreLib",
+            "name": "PDF_OFAC"
+          },
+          {
+            "columnName": "Estado_Contraloria",
+            "dataType": "System.String, System.Private.CoreLib",
+            "name": "Estado_Contraloria"
+          },
+          {
+            "columnName": "Anotacion_Contraloria",
+            "dataType": "System.String, System.Private.CoreLib",
+            "name": "Anotacion_Contraloria"
+          },
+          {
+            "columnName": "PDF_Contraloria",
+            "dataType": "System.String, System.Private.CoreLib",
+            "name": "PDF_Contraloria"
+          },
+          {
+            "columnName": "Estado_Sisben",
+            "dataType": "System.String, System.Private.CoreLib",
+            "name": "Estado_Sisben"
+          },
+          {
+            "columnName": "Tipo_Sisben",
+            "dataType": "System.String, System.Private.CoreLib",
+            "name": "Tipo_Sisben"
+          },
+          {
+            "columnName": "PDF_Sisben",
+            "dataType": "System.String, System.Private.CoreLib",
+            "name": "PDF_Sisben"
+          },
+          {
+            "columnName": "Fecha_Sisben",
+            "dataType": "System.String, System.Private.CoreLib",
+            "name": "Fecha_Sisben"
+          },
+          {
+            "columnName": "Estado_Procuraduria",
+            "dataType": "System.String, System.Private.CoreLib",
+            "name": "Estado_Procuraduria"
+          },
+          {
+            "columnName": "Anotacion_Procuraduria",
+            "dataType": "System.String, System.Private.CoreLib",
+            "name": "Anotacion_Procuraduria"
+          },
+          {
+            "columnName": "PDF_Procuraduria",
+            "dataType": "System.String, System.Private.CoreLib",
+            "name": "PDF_Procuraduria"
+          },
+          {
+            "columnName": "Estado_FondoPension",
+            "dataType": "System.String, System.Private.CoreLib",
+            "name": "Estado_FondoPension"
+          },
+          {
+            "columnName": "Entidad_FondoPension",
+            "dataType": "System.String, System.Private.CoreLib",
+            "name": "Entidad_FondoPension"
+          },
+          {
+            "columnName": "PDF_FondoPension",
+            "dataType": "System.String, System.Private.CoreLib",
+            "name": "PDF_FondoPension"
+          },
+          {
+            "columnName": "Fecha_FondoPension",
+            "dataType": "System.String, System.Private.CoreLib",
+            "name": "Fecha_FondoPension"
+          },
+          {
+            "columnName": "Estado_Union",
+            "dataType": "System.String, System.Private.CoreLib",
+            "name": "Estado_Union"
+          },
+          {
+            "columnName": "Union_PDF",
+            "dataType": "System.String, System.Private.CoreLib",
+            "name": "Union_PDF"
+          },
+          {
+            "columnName": "Fecha_UnionPDF",
+            "dataType": "System.String, System.Private.CoreLib",
+            "name": "Fecha_UnionPDF"
+          }
+        ],
+        "rowExtensionProperties": [],
+        "nestedRowExtensionProperties": []
+      },
+      "entityAssemblyKey": {
+        "name": "Studio.Generated.TypedDataTable4",
+        "hash": "ReadRangeConnections`1_1|DataTable|MeW8VltjzFGcCkIRZ2yrqHhyToYz0lg8trxznDFKE",
+        "assemblyName": "Studio.Generated.TypedDataTable4"
+      }
     }
   ]
 }

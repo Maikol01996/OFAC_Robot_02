@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Variables_Iniciales" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:uga="clr-namespace:UiPath.GSuite.Activities;assembly=UiPath.GSuite.Activities" xmlns:ugade="clr-namespace:UiPath.GSuite.Activities.Drive.Enums;assembly=UiPath.GSuite.Activities" xmlns:ugsm="clr-namespace:UiPath.GSuite.Sheets.Models;assembly=UiPath.GSuite" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:usau="clr-namespace:UiPath.Shared.Activities.Utils;assembly=UiPath.GSuite.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Variables_Iniciales" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:sd1="clr-namespace:System.Data;assembly=Studio.Generated.TypedDataTable4" xmlns:uga="clr-namespace:UiPath.GSuite.Activities;assembly=UiPath.GSuite.Activities" xmlns:ugade="clr-namespace:UiPath.GSuite.Activities.Drive.Enums;assembly=UiPath.GSuite.Activities" xmlns:ugsm="clr-namespace:UiPath.GSuite.Sheets.Models;assembly=UiPath.GSuite" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:usau="clr-namespace:UiPath.Shared.Activities.Utils;assembly=UiPath.GSuite.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="ConsultaSheet" Type="InOutArgument(sd:DataTable)" />
     <x:Property Name="Tabla_Exportacion" Type="InOutArgument(sd:DataTable)" />
@@ -118,15 +118,20 @@
       <AssemblyReference>System.Linq.Parallel</AssemblyReference>
       <AssemblyReference>System.Collections.Immutable</AssemblyReference>
       <AssemblyReference>System.Linq.Queryable</AssemblyReference>
+      <AssemblyReference>Studio.Generated.TypedDataTable3</AssemblyReference>
+      <AssemblyReference>Studio.Generated.TypedDataTable3</AssemblyReference>
+      <AssemblyReference>Studio.Generated.TypedDataTable3</AssemblyReference>
+      <AssemblyReference>Studio.Generated.TypedDataTable3</AssemblyReference>
+      <AssemblyReference>Studio.Generated.TypedDataTable4</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Variables_Iniciales" sap:VirtualizedContainerService.HintSize="603,1181" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Variables_Iniciales" sap:VirtualizedContainerService.HintSize="1054,1088" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence DisplayName="Secuencia" sap:VirtualizedContainerService.HintSize="541,1093" sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <Sequence DisplayName="Secuencia" sap:VirtualizedContainerService.HintSize="513,1065" sap2010:WorkflowViewState.IdRef="Sequence_2">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -147,10 +152,10 @@
         </ui:MultipleAssign.AssignOperations>
       </ui:MultipleAssign>
       <Delay DisplayName="Retraso" Duration="00:00:10" sap:VirtualizedContainerService.HintSize="479,122" sap2010:WorkflowViewState.IdRef="Delay_1" />
-      <uga:ReadRangeConnections x:TypeArguments="sd:DataTable" ConnectionAccountName="{x:Null}" AuthScopesInvalid="False" BrowserItemFriendlyName="Robots Seguridad UI path Pro" BrowserItemId="1MS1ExlfoKeU5y7pYx4LByrp_M7Lkzz5f_A9I9BvEI14" ConnectionId="8d97ad70-c91d-48ed-aa15-0e13e134d416" ContinueOnError="{x:Null}" DisplayName="Read Range" HasHeaders="True" sap:VirtualizedContainerService.HintSize="479,288" sap2010:WorkflowViewState.IdRef="ReadRangeConnections`1_1" ItemSelectionMode="Browse" ManualEntrySpreadsheetId="{x:Null}" Range="'FacaPrincipal_Consulta'" RangeInformation="{x:Null}" ReadAs="Values" Result="[ConsultaSheet]" Spreadsheet="{x:Null}" TemplateBrowserItemFriendlyName="{x:Null}" TemplateBrowserItemId="{x:Null}" UseConnectionService="True" WorkingWithTemplateSpreadsheet="False">
+      <uga:ReadRangeConnections x:TypeArguments="sd1:DataTable4" ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" ManualEntrySpreadsheetId="{x:Null}" RangeInformation="{x:Null}" Spreadsheet="{x:Null}" TemplateBrowserItemFriendlyName="{x:Null}" TemplateBrowserItemId="{x:Null}" AuthScopesInvalid="False" BrowserItemFriendlyName="Robots Seguridad UI path Pro" BrowserItemId="1MS1ExlfoKeU5y7pYx4LByrp_M7Lkzz5f_A9I9BvEI14" ConnectionId="8d97ad70-c91d-48ed-aa15-0e13e134d416" DisplayName="Read Range" HasHeaders="True" sap:VirtualizedContainerService.HintSize="479,288" sap2010:WorkflowViewState.IdRef="ReadRangeConnections`1_1" ItemSelectionMode="Browse" Range="'Base_General'" ReadAs="Values" Result="[ConsultaSheet]" UseConnectionService="True" WorkingWithTemplateSpreadsheet="False">
         <uga:ReadRangeConnections.ColumnNames>
           <x:Array Type="x:String">
-            <x:String>Hora_Registro</x:String>
+            <x:String xml:space="preserve">Hora_Registrx </x:String>
             <x:String>oficina</x:String>
             <x:String>Robot</x:String>
             <x:String>Cedula</x:String>
@@ -205,7 +210,7 @@
                 <InArgument x:TypeArguments="x:String">["Estado_OFAC"]</InArgument>
               </ui:FilterOperationArgument.Column>
               <ui:FilterOperationArgument.Operand>
-                <InArgument x:TypeArguments="x:String">["Sin Consultar"]</InArgument>
+                <InArgument x:TypeArguments="x:String">["SIN_CONSULTAR"]</InArgument>
               </ui:FilterOperationArgument.Operand>
             </ui:FilterOperationArgument>
           </scg:List>
