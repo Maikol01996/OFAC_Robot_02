@@ -292,7 +292,7 @@
                     <OutArgument x:TypeArguments="x:String">[carpetadescarga]</OutArgument>
                   </ui:AssignOperation.To>
                   <ui:AssignOperation.Value>
-                    <InArgument x:TypeArguments="x:String">C:\Users\Alex torres\Downloads\</InArgument>
+                    <InArgument x:TypeArguments="x:String">C:\Users\uipat\Downloads\</InArgument>
                   </ui:AssignOperation.Value>
                 </ui:AssignOperation>
                 <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_18">
