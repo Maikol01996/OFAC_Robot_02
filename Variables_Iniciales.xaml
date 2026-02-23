@@ -1,5 +1,6 @@
 <Activity mc:Ignorable="sap sap2010" x:Class="Variables_Iniciales" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:sd1="clr-namespace:System.Data;assembly=Studio.Generated.TypedDataTable4" xmlns:uga="clr-namespace:UiPath.GSuite.Activities;assembly=UiPath.GSuite.Activities" xmlns:ugade="clr-namespace:UiPath.GSuite.Activities.Drive.Enums;assembly=UiPath.GSuite.Activities" xmlns:ugsm="clr-namespace:UiPath.GSuite.Sheets.Models;assembly=UiPath.GSuite" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:usau="clr-namespace:UiPath.Shared.Activities.Utils;assembly=UiPath.GSuite.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
+    <x:Property Name="Nombre_Bot" Type="InOutArgument(x:String)" />
     <x:Property Name="ConsultaSheet" Type="InOutArgument(sd:DataTable)" />
     <x:Property Name="Tabla_Exportacion" Type="InOutArgument(sd:DataTable)" />
     <x:Property Name="Ar_PrimerasCinco" Type="InOutArgument(sd:DataTable)" />
@@ -118,123 +119,144 @@
       <AssemblyReference>System.Linq.Parallel</AssemblyReference>
       <AssemblyReference>System.Collections.Immutable</AssemblyReference>
       <AssemblyReference>System.Linq.Queryable</AssemblyReference>
-      <AssemblyReference>Studio.Generated.TypedDataTable3</AssemblyReference>
-      <AssemblyReference>Studio.Generated.TypedDataTable3</AssemblyReference>
-      <AssemblyReference>Studio.Generated.TypedDataTable3</AssemblyReference>
-      <AssemblyReference>Studio.Generated.TypedDataTable3</AssemblyReference>
       <AssemblyReference>Studio.Generated.TypedDataTable4</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Variables_Iniciales" sap:VirtualizedContainerService.HintSize="1054,1088" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Variables_Iniciales" sap:VirtualizedContainerService.HintSize="3205,1472.6566666666668" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence DisplayName="Secuencia" sap:VirtualizedContainerService.HintSize="513,1065" sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <Sequence DisplayName="Secuencia" sap:VirtualizedContainerService.HintSize="450,306" sap2010:WorkflowViewState.IdRef="Sequence_2">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="479,148" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
-        <ui:MultipleAssign.AssignOperations>
-          <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
-            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
-              <ui:AssignOperation.To>
-                <OutArgument x:TypeArguments="sd:DataTable">[ConsultaSheet]</OutArgument>
-              </ui:AssignOperation.To>
-              <ui:AssignOperation.Value>
-                <InArgument x:TypeArguments="sd:DataTable">[new DataTable2()]</InArgument>
-              </ui:AssignOperation.Value>
-            </ui:AssignOperation>
-          </scg:List>
-        </ui:MultipleAssign.AssignOperations>
-      </ui:MultipleAssign>
-      <Delay DisplayName="Retraso" Duration="00:00:10" sap:VirtualizedContainerService.HintSize="479,122" sap2010:WorkflowViewState.IdRef="Delay_1" />
-      <uga:ReadRangeConnections x:TypeArguments="sd1:DataTable4" ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" ManualEntrySpreadsheetId="{x:Null}" RangeInformation="{x:Null}" Spreadsheet="{x:Null}" TemplateBrowserItemFriendlyName="{x:Null}" TemplateBrowserItemId="{x:Null}" AuthScopesInvalid="False" BrowserItemFriendlyName="Robots Seguridad UI path Pro" BrowserItemId="1MS1ExlfoKeU5y7pYx4LByrp_M7Lkzz5f_A9I9BvEI14" ConnectionId="8d97ad70-c91d-48ed-aa15-0e13e134d416" DisplayName="Read Range" HasHeaders="True" sap:VirtualizedContainerService.HintSize="479,288" sap2010:WorkflowViewState.IdRef="ReadRangeConnections`1_1" ItemSelectionMode="Browse" Range="'Base_General'" ReadAs="Values" Result="[ConsultaSheet]" UseConnectionService="True" WorkingWithTemplateSpreadsheet="False">
-        <uga:ReadRangeConnections.ColumnNames>
-          <x:Array Type="x:String">
-            <x:String xml:space="preserve">Hora_Registrx </x:String>
-            <x:String>oficina</x:String>
-            <x:String>Robot</x:String>
-            <x:String>Cedula</x:String>
-            <x:String>Tipo_documento</x:String>
-            <x:String>Estado_Adress</x:String>
-            <x:String>Apellido_Adress</x:String>
-            <x:String>Entidad_Adress</x:String>
-            <x:String>PDF_Adress</x:String>
-            <x:String>Fecha_Adress</x:String>
-            <x:String>Estado_Policivo</x:String>
-            <x:String>Anotacion_Policivo</x:String>
-            <x:String>PDF_Policivo</x:String>
-            <x:String>Estado_OFAC</x:String>
-            <x:String>Anotacion_OFAC</x:String>
-            <x:String>PDF_OFAC</x:String>
-            <x:String>Estado_Contraloria</x:String>
-            <x:String>Anotacion_Contraloria</x:String>
-            <x:String>PDF_Contraloria</x:String>
-            <x:String>Estado_Sisben</x:String>
-            <x:String>Tipo_Sisben</x:String>
-            <x:String>PDF_Sisben</x:String>
-            <x:String>Fecha_Sisben</x:String>
-            <x:String>Estado_Procuraduria</x:String>
-            <x:String>Anotacion_Procuraduria</x:String>
-            <x:String>PDF_Procuraduria</x:String>
-            <x:String>Estado_FondoPension</x:String>
-            <x:String>Entidad_FondoPension</x:String>
-            <x:String>PDF_FondoPension</x:String>
-            <x:String>Fecha_FondoPension</x:String>
-            <x:String>Estado_Union</x:String>
-            <x:String>Union_PDF</x:String>
-            <x:String>Fecha_UnionPDF</x:String>
-          </x:Array>
-        </uga:ReadRangeConnections.ColumnNames>
-        <uga:ReadRangeConnections.FileIdBackup>
-          <usau:BackupSlot x:TypeArguments="ugade:EDriveItemMode" StoredValue="Browse">
-            <usau:BackupSlot.BackupValues>
-              <scg:Dictionary x:TypeArguments="ugade:EDriveItemMode, scg:List(x:Object)" />
-            </usau:BackupSlot.BackupValues>
-          </usau:BackupSlot>
-        </uga:ReadRangeConnections.FileIdBackup>
-        <uga:ReadRangeConnections.RangeMetadata>
-          <ugsm:RangeMetadataSlim ColumnStart="1" RangeType="Range" />
-        </uga:ReadRangeConnections.RangeMetadata>
-      </uga:ReadRangeConnections>
-      <ui:BuildDataTable DataTable="[Tabla_Exportacion]" DisplayName="Crear tabla de datos" sap:VirtualizedContainerService.HintSize="479,92" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;TECedula_Busqueda&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;3000&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;TEEstado_OFAC&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;3000&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;TEFecha_OFAC&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;3000&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;TEPDF_OFAC&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;3000&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;" />
-      <ui:FilterDataTable DataTable="[ConsultaSheet]" DisplayName="Filter Data Table" FilterRowsMode="Remove" sap:VirtualizedContainerService.HintSize="479,193" sap2010:WorkflowViewState.IdRef="FilterDataTable_1" OutputDataTable="[Ar_ConsultaSheetFiltrada]" SelectColumnsMode="Remove">
-        <ui:FilterDataTable.Filters>
-          <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
-            <ui:FilterOperationArgument BooleanOperator="And" Operator="NOTEQ">
-              <ui:FilterOperationArgument.Column>
-                <InArgument x:TypeArguments="x:String">["Estado_OFAC"]</InArgument>
-              </ui:FilterOperationArgument.Column>
-              <ui:FilterOperationArgument.Operand>
-                <InArgument x:TypeArguments="x:String">["SIN_CONSULTAR"]</InArgument>
-              </ui:FilterOperationArgument.Operand>
-            </ui:FilterOperationArgument>
-          </scg:List>
-        </ui:FilterDataTable.Filters>
-        <ui:FilterDataTable.SelectColumns>
-          <scg:List x:TypeArguments="InArgument" Capacity="4">
-            <x:Null />
-          </scg:List>
-        </ui:FilterDataTable.SelectColumns>
-      </ui:FilterDataTable>
-      <ui:MultipleAssign DisplayName="Asignación múltiple" sap:VirtualizedContainerService.HintSize="479,139" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
-        <ui:MultipleAssign.AssignOperations>
-          <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
-            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
-              <ui:AssignOperation.To>
-                <OutArgument x:TypeArguments="sd:DataTable">[Ar_PrimerasCinco]</OutArgument>
-              </ui:AssignOperation.To>
-              <ui:AssignOperation.Value>
-                <InArgument x:TypeArguments="sd:DataTable">[Ar_ConsultaSheetFiltrada.AsEnumerable().Skip(0).Take(20).CopyToDataTable()]</InArgument>
-              </ui:AssignOperation.Value>
-            </ui:AssignOperation>
-          </scg:List>
-        </ui:MultipleAssign.AssignOperations>
-      </ui:MultipleAssign>
+      <ui:CommentOut DisplayName="Comentar" sap:VirtualizedContainerService.HintSize="416,57" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+        <ui:CommentOut.Body>
+          <Sequence DisplayName="Actividades ignoradas" sap:VirtualizedContainerService.HintSize="512,1049" sap2010:WorkflowViewState.IdRef="Sequence_3">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="478,149" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+              <ui:MultipleAssign.AssignOperations>
+                <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="sd:DataTable">[ConsultaSheet]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="sd:DataTable">[new DataTable2()]</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                </scg:List>
+              </ui:MultipleAssign.AssignOperations>
+            </ui:MultipleAssign>
+            <Delay DisplayName="Retraso" Duration="00:00:10" sap:VirtualizedContainerService.HintSize="478,123" sap2010:WorkflowViewState.IdRef="Delay_1" />
+            <uga:ReadRangeConnections x:TypeArguments="sd1:DataTable4" ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" ManualEntrySpreadsheetId="{x:Null}" RangeInformation="{x:Null}" Spreadsheet="{x:Null}" TemplateBrowserItemFriendlyName="{x:Null}" TemplateBrowserItemId="{x:Null}" AuthScopesInvalid="False" BrowserItemFriendlyName="Robots Seguridad UI path Pro" BrowserItemId="1MS1ExlfoKeU5y7pYx4LByrp_M7Lkzz5f_A9I9BvEI14" ConnectionId="8d97ad70-c91d-48ed-aa15-0e13e134d416" DisplayName="Read Range" HasHeaders="True" sap:VirtualizedContainerService.HintSize="478,290" sap2010:WorkflowViewState.IdRef="ReadRangeConnections`1_1" ItemSelectionMode="Browse" Range="'Base_General'" ReadAs="Values" Result="[ConsultaSheet]" UseConnectionService="True" WorkingWithTemplateSpreadsheet="False">
+              <uga:ReadRangeConnections.ColumnNames>
+                <x:Array Type="x:String">
+                  <x:String xml:space="preserve">Hora_Registrx </x:String>
+                  <x:String>oficina</x:String>
+                  <x:String>Robot</x:String>
+                  <x:String>Cedula</x:String>
+                  <x:String>Tipo_documento</x:String>
+                  <x:String>Estado_Adress</x:String>
+                  <x:String>Apellido_Adress</x:String>
+                  <x:String>Entidad_Adress</x:String>
+                  <x:String>PDF_Adress</x:String>
+                  <x:String>Fecha_Adress</x:String>
+                  <x:String>Estado_Policivo</x:String>
+                  <x:String>Anotacion_Policivo</x:String>
+                  <x:String>PDF_Policivo</x:String>
+                  <x:String>Estado_OFAC</x:String>
+                  <x:String>Anotacion_OFAC</x:String>
+                  <x:String>PDF_OFAC</x:String>
+                  <x:String>Estado_Contraloria</x:String>
+                  <x:String>Anotacion_Contraloria</x:String>
+                  <x:String>PDF_Contraloria</x:String>
+                  <x:String>Estado_Sisben</x:String>
+                  <x:String>Tipo_Sisben</x:String>
+                  <x:String>PDF_Sisben</x:String>
+                  <x:String>Fecha_Sisben</x:String>
+                  <x:String>Estado_Procuraduria</x:String>
+                  <x:String>Anotacion_Procuraduria</x:String>
+                  <x:String>PDF_Procuraduria</x:String>
+                  <x:String>Estado_FondoPension</x:String>
+                  <x:String>Entidad_FondoPension</x:String>
+                  <x:String>PDF_FondoPension</x:String>
+                  <x:String>Fecha_FondoPension</x:String>
+                  <x:String>Estado_Union</x:String>
+                  <x:String>Union_PDF</x:String>
+                  <x:String>Fecha_UnionPDF</x:String>
+                </x:Array>
+              </uga:ReadRangeConnections.ColumnNames>
+              <uga:ReadRangeConnections.FileIdBackup>
+                <usau:BackupSlot x:TypeArguments="ugade:EDriveItemMode" StoredValue="Browse">
+                  <usau:BackupSlot.BackupValues>
+                    <scg:Dictionary x:TypeArguments="ugade:EDriveItemMode, scg:List(x:Object)" />
+                  </usau:BackupSlot.BackupValues>
+                </usau:BackupSlot>
+              </uga:ReadRangeConnections.FileIdBackup>
+              <uga:ReadRangeConnections.RangeMetadata>
+                <ugsm:RangeMetadataSlim ColumnStart="1" RangeType="Range" />
+              </uga:ReadRangeConnections.RangeMetadata>
+            </uga:ReadRangeConnections>
+            <ui:BuildDataTable DataTable="[Tabla_Exportacion]" DisplayName="Crear tabla de datos" sap:VirtualizedContainerService.HintSize="478,92" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;TECedula_Busqueda&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;3000&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;TEEstado_OFAC&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;3000&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;TEFecha_OFAC&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;3000&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;TEPDF_OFAC&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;3000&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;" />
+            <ui:FilterDataTable DataTable="[ConsultaSheet]" DisplayName="Filter Data Table" FilterRowsMode="Remove" sap:VirtualizedContainerService.HintSize="478,195" sap2010:WorkflowViewState.IdRef="FilterDataTable_1" OutputDataTable="[Ar_ConsultaSheetFiltrada]" SelectColumnsMode="Remove">
+              <ui:FilterDataTable.Filters>
+                <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
+                  <ui:FilterOperationArgument BooleanOperator="And" Operator="NOTEQ">
+                    <ui:FilterOperationArgument.Column>
+                      <InArgument x:TypeArguments="x:String">["Estado_OFAC"]</InArgument>
+                    </ui:FilterOperationArgument.Column>
+                    <ui:FilterOperationArgument.Operand>
+                      <InArgument x:TypeArguments="x:String">["SIN_CONSULTAR"]</InArgument>
+                    </ui:FilterOperationArgument.Operand>
+                  </ui:FilterOperationArgument>
+                </scg:List>
+              </ui:FilterDataTable.Filters>
+              <ui:FilterDataTable.SelectColumns>
+                <scg:List x:TypeArguments="InArgument" Capacity="4">
+                  <x:Null />
+                </scg:List>
+              </ui:FilterDataTable.SelectColumns>
+            </ui:FilterDataTable>
+            <ui:MultipleAssign DisplayName="Asignación múltiple" sap:VirtualizedContainerService.HintSize="478,140" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
+              <ui:MultipleAssign.AssignOperations>
+                <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="sd:DataTable">[Ar_PrimerasCinco]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="sd:DataTable">[Ar_ConsultaSheetFiltrada.AsEnumerable().Skip(0).Take(20).CopyToDataTable()]</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                </scg:List>
+              </ui:MultipleAssign.AssignOperations>
+            </ui:MultipleAssign>
+          </Sequence>
+        </ui:CommentOut.Body>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:CommentOut>
+      <Assign DisplayName="Establecer valor de variable" sap:VirtualizedContainerService.HintSize="416,166" sap2010:WorkflowViewState.IdRef="Assign_1">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:String">[Nombre_Bot]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">["Robot-1-Servidor-234"]</InArgument>
+        </Assign.Value>
+      </Assign>
     </Sequence>
   </Sequence>
 </Activity>

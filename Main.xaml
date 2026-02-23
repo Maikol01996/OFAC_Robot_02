@@ -131,7 +131,7 @@
       <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="3199,6818" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="3199,6964" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="RBC" />
       <Variable x:TypeArguments="x:String" Name="Cedula" />
@@ -152,9 +152,9 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:InterruptibleDoWhile CurrentIndex="{x:Null}" Condition="[BanderaInfinito=True]" DisplayName="Hacer mientras" sap:VirtualizedContainerService.HintSize="1632,6795" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_2">
+    <ui:InterruptibleDoWhile CurrentIndex="{x:Null}" Condition="[BanderaInfinito=True]" DisplayName="Hacer mientras" sap:VirtualizedContainerService.HintSize="1632,6941" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_2">
       <ui:InterruptibleDoWhile.Body>
-        <Sequence DisplayName="Cuerpo" sap:VirtualizedContainerService.HintSize="1630,6673" sap2010:WorkflowViewState.IdRef="Sequence_12">
+        <Sequence DisplayName="Cuerpo" sap:VirtualizedContainerService.HintSize="1630,6819" sap2010:WorkflowViewState.IdRef="Sequence_12">
           <Sequence.Variables>
             <Variable x:TypeArguments="sd:DataTable" Name="Tabla_Exportacion" />
             <Variable x:TypeArguments="sd:DataTable" Name="ConsultaFiltrada" />
@@ -164,6 +164,7 @@
             <Variable x:TypeArguments="x:String" Name="PrimerApellido" />
             <Variable x:TypeArguments="x:String" Name="carpetadescarga" />
             <Variable x:TypeArguments="x:String" Name="NombreRobot" />
+            <Variable x:TypeArguments="x:String" Name="Nombre_Robot" />
           </Sequence.Variables>
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -210,6 +211,21 @@
             </ui:MultipleAssign.AssignOperations>
           </ui:MultipleAssign>
           <WriteLine DisplayName="Escribir línea" sap:VirtualizedContainerService.HintSize="1596,123" sap2010:WorkflowViewState.IdRef="WriteLine_3" Text="paso 0" />
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Variables_Iniciales.xaml - Invocar archivo de flujo de trabajo" sap:VirtualizedContainerService.HintSize="1596,146" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Variables_Iniciales.xaml">
+            <ui:InvokeWorkflowFile.Arguments>
+              <InOutArgument x:TypeArguments="x:String" x:Key="Nombre_Bot">
+                <VisualBasicReference x:TypeArguments="x:String" ExpressionText="Nombre_Robot" />
+              </InOutArgument>
+              <InOutArgument x:TypeArguments="sd:DataTable" x:Key="ConsultaSheet">
+                <VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="ConsultaSheet" />
+              </InOutArgument>
+              <InOutArgument x:TypeArguments="sd:DataTable" x:Key="Tabla_Exportacion">
+                <VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="Tabla_Exportacion" />
+              </InOutArgument>
+              <InOutArgument x:TypeArguments="sd:DataTable" x:Key="Ar_PrimerasCinco" />
+              <InOutArgument x:TypeArguments="sd:DataTable" x:Key="Ar_ConsultaSheetFiltrada" />
+            </ui:InvokeWorkflowFile.Arguments>
+          </ui:InvokeWorkflowFile>
           <ui:MultipleAssign sap2010:Annotation.AnnotationText="" DisplayName="Asignación múltiple" sap:VirtualizedContainerService.HintSize="1596,490" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
             <ui:MultipleAssign.AssignOperations>
               <scg:List x:TypeArguments="ui:AssignOperation" Capacity="16">
@@ -319,12 +335,23 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:MultipleAssign>
-          <ui:InvokeCode ContinueOnError="{x:Null}" Code="Try&#xA;    Dim url As String = &quot;http://10.10.10.60:4545/EstadosRobots/estado-ofac/&quot;&#xA;&#xA;    Dim request As System.Net.HttpWebRequest = CType(System.Net.WebRequest.Create(url), System.Net.HttpWebRequest)&#xA;    request.Method = &quot;GET&quot;&#xA;    request.Accept = &quot;application/json&quot;&#xA;&#xA;    ' ✅ IMPORTANTE: Identificador del robot para locks/lease&#xA;    request.Headers.Add(&quot;X-Worker-Id&quot;, &quot;Robot-3-Servidor-234&quot;)&#xA;&#x9;&#xA;    Using response As System.Net.HttpWebResponse = CType(request.GetResponse(), System.Net.HttpWebResponse)&#xA;        Using reader As New System.IO.StreamReader(response.GetResponseStream())&#xA;            Dim jsonResult As String = reader.ReadToEnd()&#xA;&#xA;            Dim parsed As Newtonsoft.Json.Linq.JObject = Newtonsoft.Json.Linq.JObject.Parse(jsonResult)&#xA;&#xA;            Cedula = parsed(&quot;cedula&quot;).ToString()&#xA;            Tipo_Documento = parsed(&quot;tipo_documento&quot;).ToString()&#xA;            PrimerNombre = parsed(&quot;nombre_completo&quot;).ToString()&#xA;            PrimerApellido = parsed(&quot;primer_apellido&quot;).ToString()&#xA;        End Using&#xA;    End Using&#xA;&#xA;Catch ex As System.Net.WebException&#xA;    Dim errorMessage As String = &quot;&quot;&#xA;    Dim statusCode As String = &quot;&quot;&#xA;&#xA;    If ex.Response IsNot Nothing Then&#xA;        Try&#xA;            Dim httpResponse = CType(ex.Response, System.Net.HttpWebResponse)&#xA;            statusCode = httpResponse.StatusCode.ToString()&#xA;&#xA;            If httpResponse.GetResponseStream() IsNot Nothing Then&#xA;                Using reader As New System.IO.StreamReader(httpResponse.GetResponseStream())&#xA;                    errorMessage = reader.ReadToEnd()&#xA;                End Using&#xA;            Else&#xA;                errorMessage = &quot;(El servidor no devolvió cuerpo en la respuesta)&quot;&#xA;            End If&#xA;&#xA;        Catch innerEx As Exception&#xA;            errorMessage = &quot;Error leyendo cuerpo del error: &quot; &amp; innerEx.Message&#xA;        End Try&#xA;    Else&#xA;        errorMessage = &quot;No hubo respuesta del servidor (ex.Response is Nothing)&quot;&#xA;    End If&#xA;&#xA;    Cedula = $&quot;ERROR API: {statusCode} - {errorMessage}&quot;&#xA;    Tipo_Documento = &quot;&quot;&#xA;    PrimerNombre = &quot;&quot;&#xA;    PrimerApellido = &quot;&quot;&#xA;&#xA;Catch ex As Exception&#xA;    Cedula = &quot;ERROR GENERAL: &quot; &amp; ex.Message&#xA;    Tipo_Documento = &quot;&quot;&#xA;    PrimerNombre = &quot;&quot;&#xA;    PrimerApellido = &quot;&quot;&#xA;End Try&#xA;" DisplayName="Invoke Code" sap:VirtualizedContainerService.HintSize="1596,197" sap2010:WorkflowViewState.IdRef="InvokeCode_1">
+          <ui:InvokeCode ContinueOnError="{x:Null}" Code="Try&#xD;&#xA;    Dim url As String = &quot;http://10.10.10.60:4545/EstadosRobots/estado-ofac/&quot;&#xD;&#xA;&#xD;&#xA;    Dim request As System.Net.HttpWebRequest = CType(System.Net.WebRequest.Create(url), System.Net.HttpWebRequest)&#xD;&#xA;    request.Method = &quot;GET&quot;&#xD;&#xA;    request.Accept = &quot;application/json&quot;&#xD;&#xA;&#xD;&#xA;    ' ✅ IMPORTANTE: Identificador del robot para locks/lease&#xD;&#xA;    request.Headers.Add(&quot;X-Worker-Id&quot;, Nombre_Robot)&#xD;&#xA;&#x9;&#xD;&#xA;    Using response As System.Net.HttpWebResponse = CType(request.GetResponse(), System.Net.HttpWebResponse)&#xD;&#xA;        Using reader As New System.IO.StreamReader(response.GetResponseStream())&#xD;&#xA;            Dim jsonResult As String = reader.ReadToEnd()&#xD;&#xA;&#xD;&#xA;            Dim parsed As Newtonsoft.Json.Linq.JObject = Newtonsoft.Json.Linq.JObject.Parse(jsonResult)&#xD;&#xA;&#xD;&#xA;            Cedula = parsed(&quot;cedula&quot;).ToString()&#xD;&#xA;            Tipo_Documento = parsed(&quot;tipo_documento&quot;).ToString()&#xD;&#xA;            PrimerNombre = parsed(&quot;nombre_completo&quot;).ToString()&#xD;&#xA;            PrimerApellido = parsed(&quot;primer_apellido&quot;).ToString()&#xD;&#xA;        End Using&#xD;&#xA;    End Using&#xD;&#xA;&#xD;&#xA;Catch ex As System.Net.WebException&#xD;&#xA;    Dim errorMessage As String = &quot;&quot;&#xD;&#xA;    Dim statusCode As String = &quot;&quot;&#xD;&#xA;&#xD;&#xA;    If ex.Response IsNot Nothing Then&#xD;&#xA;        Try&#xD;&#xA;            Dim httpResponse = CType(ex.Response, System.Net.HttpWebResponse)&#xD;&#xA;            statusCode = httpResponse.StatusCode.ToString()&#xD;&#xA;&#xD;&#xA;            If httpResponse.GetResponseStream() IsNot Nothing Then&#xD;&#xA;                Using reader As New System.IO.StreamReader(httpResponse.GetResponseStream())&#xD;&#xA;                    errorMessage = reader.ReadToEnd()&#xD;&#xA;                End Using&#xD;&#xA;            Else&#xD;&#xA;                errorMessage = &quot;(El servidor no devolvió cuerpo en la respuesta)&quot;&#xD;&#xA;            End If&#xD;&#xA;&#xD;&#xA;        Catch innerEx As Exception&#xD;&#xA;            errorMessage = &quot;Error leyendo cuerpo del error: &quot; &amp; innerEx.Message&#xD;&#xA;        End Try&#xD;&#xA;    Else&#xD;&#xA;        errorMessage = &quot;No hubo respuesta del servidor (ex.Response is Nothing)&quot;&#xD;&#xA;    End If&#xD;&#xA;&#xD;&#xA;    Cedula = $&quot;ERROR API: {statusCode} - {errorMessage}&quot;&#xD;&#xA;    Tipo_Documento = &quot;&quot;&#xD;&#xA;    PrimerNombre = &quot;&quot;&#xD;&#xA;    PrimerApellido = &quot;&quot;&#xD;&#xA;&#xD;&#xA;Catch ex As Exception&#xD;&#xA;    Cedula = &quot;ERROR GENERAL: &quot; &amp; ex.Message&#xD;&#xA;    Tipo_Documento = &quot;&quot;&#xD;&#xA;    PrimerNombre = &quot;&quot;&#xD;&#xA;    PrimerApellido = &quot;&quot;&#xD;&#xA;End Try&#xD;&#xA;" DisplayName="Invoke Code" sap:VirtualizedContainerService.HintSize="1596,197" sap2010:WorkflowViewState.IdRef="InvokeCode_1">
             <ui:InvokeCode.Arguments>
-              <OutArgument x:TypeArguments="x:String" x:Key="Cedula ">[Cedula]</OutArgument>
-              <OutArgument x:TypeArguments="x:String" x:Key="Tipo_Documento">[Tipo_Documento]</OutArgument>
-              <OutArgument x:TypeArguments="x:String" x:Key="PrimerNombre">[PrimerNombre]</OutArgument>
-              <OutArgument x:TypeArguments="x:String" x:Key="PrimerApellido">[PrimerApellido]</OutArgument>
+              <OutArgument x:TypeArguments="x:String" x:Key="Cedula ">
+                <VisualBasicReference x:TypeArguments="x:String" ExpressionText="Cedula" />
+              </OutArgument>
+              <OutArgument x:TypeArguments="x:String" x:Key="Tipo_Documento">
+                <VisualBasicReference x:TypeArguments="x:String" ExpressionText="Tipo_Documento" />
+              </OutArgument>
+              <OutArgument x:TypeArguments="x:String" x:Key="PrimerNombre">
+                <VisualBasicReference x:TypeArguments="x:String" ExpressionText="PrimerNombre" />
+              </OutArgument>
+              <OutArgument x:TypeArguments="x:String" x:Key="PrimerApellido">
+                <VisualBasicReference x:TypeArguments="x:String" ExpressionText="PrimerApellido" />
+              </OutArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="Nombre_Robot">
+                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="Nombre_Robot" />
+              </InArgument>
             </ui:InvokeCode.Arguments>
           </ui:InvokeCode>
           <Assign sap:VirtualizedContainerService.HintSize="1596,175" sap2010:WorkflowViewState.IdRef="Assign_7">
@@ -586,7 +613,7 @@
                                 <uix:NTypeInto.Target>
                                   <uix:TargetAnchorable CvElementArea="129, 745, 1056, 24" CvType="InputBox" DesignTimeRectangle="136, 749, 1031, 17" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'Sanctions List Search'" FullSelectorArgument="&lt;wnd aaname='Panel del explorador' cls='DirectUIHWND' /&gt;&lt;wnd aaname='Nombre:' cls='ComboBox' /&gt;&lt;wnd ctrlid='1001' /&gt;" FuzzySelectorArgument="&lt;wnd aaname='Panel del explorador' cls='DirectUIHWND' /&gt;&lt;wnd aaname='Nombre:' cls='ComboBox' /&gt;&lt;wnd ctrlid='1001' /&gt;" Guid="b41625c0-6e3f-4fca-9890-c923e41094dc" InformativeScreenshot="23a1894bba34ae93a3f38a256d9e68cb.png" IsResponsive="True" ScopeSelectorArgument="&lt;wnd app='msedge.exe' cls='#32770' title='Guardar como' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V2" Visibility="Interactive">
                                     <uix:TargetAnchorable.Anchors>
-                                      <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
                                         <uix:Target CvTextArea="80, 751, 48, 14" CvTextArgument="Nombre:" CvType="Text" DesignTimeRectangle="18, 746, 115, 23" ElementType="Text" FriendlyName="'Nombre'" FullSelectorArgument="&lt;wnd aaname='Panel del explorador' cls='DirectUIHWND' /&gt;&lt;ctrl name='Panel del explorador' role='pane' /&gt;&lt;ctrl name='Panel de diseño de carpeta' role='pane' /&gt;&lt;ctrl name='Panel de detalles' role='pane' /&gt;&lt;ctrl name='Nombre:' role='text' /&gt;" FuzzySelectorArgument="&lt;wnd aaname='Panel del explorador' cls='DirectUIHWND' /&gt;&lt;ctrl name='Panel del explorador' role='pane' /&gt;&lt;ctrl name='Panel de diseño de carpeta' role='pane' /&gt;&lt;ctrl name='Panel de detalles' role='pane' /&gt;&lt;ctrl name='Nombre:' role='text' automationid='' check:text='Nombre:' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAHcAAAAbCAYAAABGDxCrAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAF3SURBVGhD7ZrNbQMhEEapwdVsQRTha+7UkB6oIvcoooSkBGtPE/4WzwDe2Ip98Piz9KRlWAZrHiAOa9Z1JaATyFUM5Crk/eObDm8BcjWSxH7+nCBXI+b4RekHuQqBXMVArmIgVzGQK/BkjSFj/SS+kAs89l8ekVMCuYJS8GUxZP0Yh9ynphbcuyjYUejjkPvMnAvuraHFhSGe2yHKT8d35bzL2eJgfcEt7d0hJ3u377M2jbPkhzlrzFsyYhFKIFfAJe49M6G56LKvFTwVn0vL7Sqmf3eS5+LiinlyH+TewljEcrli8SxhE1RIu7zI7sbvtvu+nTzdSZEZLn0jkCvoCx7I5csViz9M7jbXpG8y5zVArqAveKTtGi5lk7D186OWj99rlzzt6P0zDz+mKziWb6EvaqFciFi8CefSEzMpl9rluVyaSq62YGb/Q8wZSccy5L4ukHtH2q66gtn4ewO5ioFcxUCuYiBXMfiGSjH4+vEFgFy1rPQLQEKKp1iLFhkAAAAASUVORK5CYII=" SearchSteps="Selector, FuzzySelector" />
                                       </scg:List>
                                     </uix:TargetAnchorable.Anchors>
@@ -597,7 +624,7 @@
                                 <uix:NClick.Target>
                                   <uix:TargetAnchorable CvElementArea="987, 849, 89, 27" CvTextArea="1009, 855, 44, 12" CvTextArgument="Guardar" CvType="Button" DesignTimeRectangle="987, 849, 88, 26" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'unchecked'" FullSelectorArgument="&lt;wnd ctrlid='1' title='&amp;amp;Guardar' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlid='1' title='&amp;amp;Guardar' check:text='unchecked' /&gt;" Guid="b74658e9-5ee1-4abf-867e-c050b5f8e8c9" InformativeScreenshot="8321323675746a9e454055255e771361.png" ScopeSelectorArgument="&lt;wnd app='msedge.exe' cls='#32770' title='Guardar como' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive">
                                     <uix:TargetAnchorable.Anchors>
-                                      <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
                                         <uix:Target CvElementArea="1087, 849, 88, 27" CvTextArea="1107, 855, 48, 12" CvTextArgument="Cancelar" CvType="Button" DesignTimeRectangle="1087, 849, 88, 26" ElementType="Button" FriendlyName="'Cancelar'" FullSelectorArgument="&lt;wnd ctrlid='2' title='Cancelar' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlid='2' title='Cancelar' check:text='Cancelar' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFwAAAAeCAYAAAChf3k/AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHiSURBVGhD7ZlNroIwEIC5FgfqeXoaNhpvIIlxZXoAjcYFawyZx7SFN4WCyIPxJcziS+zPtPHrMBibFEUBAh8inBkRzkxP+PP5hMvlAufzGU6nkzATY4x12fUbCMcJKPp2u8Hr9YKqqoQZoLv7/W5ddqUHwvFUHo9HdBHhc67Xq60W1HEgHB+FsiyjwcLnoEvMcuq4JzwWKMwHnVLHInxlRDgzXxJuQKcJJIkn1WCi89YgA5WkoE1sbH34hRsNaS1ZZWGfpu1V2ZRwl9mBbHa2JNxmt4IsNubJFCk1KvP9XpJW7ViqDYkLS1R7oP5pcv3NvqHwsf2USkncMvALn1yvqRj8TIRkKL4R4WSHB9DEkEyuY9ycTn90vtuvv+bf+XcZ7mQ2WUcFUEmkPbRmkN0ee2CdtSbttxy8wt/V8EAezh0SMFV47HCHYsf2Ww5m4TU+o6K/UnCsKTlWxpAA2h4rKW9KzeT9loNfOGK/HHnU27ru5Lk+BWpKhrft3/XiL82aXkmZut9yfEf4hhHhzIhwZkQ4M6PC8c9yuYBYDnQ5Khyvg/BaKBYsfA7ea+K1JXUcCG8ukXGiZPp80B0m7ttLZAQn5HkO+/0edrudMIPD4QDH47EnG+kJF9ZFhDMjwlkp4AcNJIdtVD8/eAAAAABJRU5ErkJggg==" SearchSteps="Selector, FuzzySelector" />
                                       </scg:List>
                                     </uix:TargetAnchorable.Anchors>
@@ -616,7 +643,7 @@
                                       <uix:NClick.Target>
                                         <uix:TargetAnchorable CvElementArea="206, 100, 68, 23" CvTextArea="234, 105, 12, 13" CvTextArgument="Si" CvType="Button" DesignTimeRectangle="206, 100, 68, 23" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'&amp;Sí'" FullSelectorArgument="&lt;wnd aaname='Confirmar Guardar como' cls='DirectUIHWND' /&gt;&lt;wnd aaname='Sí' cls='Button' title='&amp;amp;Sí' /&gt;" FuzzySelectorArgument="&lt;wnd aaname='Confirmar Guardar como' cls='DirectUIHWND' /&gt;&lt;wnd aaname='Sí' cls='Button' title='&amp;amp;Sí' check:text='&amp;amp;Sí' /&gt;" Guid="d6cbecdf-22d5-464e-be00-9b7309c59aa8" InformativeScreenshot="0521051694e19ff3257d961ed5df9c88.png" ScopeSelectorArgument="&lt;wnd app='msedge.exe' cls='#32770' title='Confirmar Guardar como' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V2" Visibility="Interactive">
                                           <uix:TargetAnchorable.Anchors>
-                                            <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
                                               <uix:Target CvElementArea="280, 100, 68, 23" CvTextArea="305, 105, 17, 13" CvTextArgument="No" CvType="Button" DesignTimeRectangle="280, 100, 68, 23" ElementType="Button" FriendlyName="'unchecked'" FullSelectorArgument="&lt;wnd aaname='Confirmar Guardar como' cls='DirectUIHWND' /&gt;&lt;wnd aaname='No' cls='Button' title='&amp;amp;No' /&gt;" FuzzySelectorArgument="&lt;wnd aaname='Confirmar Guardar como' cls='DirectUIHWND' /&gt;&lt;wnd aaname='No' cls='Button' title='&amp;amp;No' check:text='unchecked' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEgAAAAbCAYAAADf98keAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGjSURBVFhH7ZgxTsMwFIZ9gSjnidQb5ByZYGNhajlBvXWDW3gpEgh6AFCFOhh16EbVRsrSBRQ98l6TYich6eLGkj18SvxkD/7021Eey7IMPP/jBfXgBfXQELTcpDCafUJ4twJ2++EM8f2a9l73oQnCCShm8riF9PADeZ47Ae51uthBOFk1JGmC4oc18MWeFgVB4NxzPP+i06M60QRh1NBmtcg10sM3pUhzog0KQW0LXaAKBTrQnGiDUpCrCULOEmQWAQljwBLRUo+AS7V2OSxK0FFEFDFIRLM+lKAKSxJUiBC8kMRB1us+QX8iRMIg4rJRp7EsBOJRLNHTZg57EkQiut4VKSRLkWcAKxNEY5GUF7ZSJyEJCGUdpu0SKbIsQYgEThf2sILsTRByum+qOs6pHzFdmCksTNARySNFUMFJmirOHBYlyG4GT1D12e6ibZ1pzkoQ9oJc/5vvFIS9kPF8S5MrSS49p6876iyqTjRBy82eUoTdNdc6itgsw72jA9WJJgjBCfHsHdj1M7CrJycIb15gxN8acpCGII+OF9SDF9RJBr8b9TEChZ6MawAAAABJRU5ErkJggg==" SearchSteps="Selector, FuzzySelector" />
                                             </scg:List>
                                           </uix:TargetAnchorable.Anchors>
@@ -638,7 +665,7 @@
                                 <uix:NCheckState.Target>
                                   <uix:TargetAnchorable CvElementArea="206, 100, 68, 23" CvTextArea="234, 105, 12, 13" CvTextArgument="Si" CvType="Button" DesignTimeRectangle="206, 100, 68, 23" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'&amp;Sí'" FullSelectorArgument="&lt;wnd aaname='Confirmar Guardar como' cls='DirectUIHWND' /&gt;&lt;wnd aaname='Sí' cls='Button' title='&amp;amp;Sí' /&gt;" FuzzySelectorArgument="&lt;wnd aaname='Confirmar Guardar como' cls='DirectUIHWND' /&gt;&lt;wnd aaname='Sí' cls='Button' title='&amp;amp;Sí' check:text='&amp;amp;Sí' /&gt;" Guid="dc8021f9-b569-4a50-a774-e10d0b67386d" InformativeScreenshot="5c3600fd2f96d761a8cbc0f9e02dc868.png" ScopeSelectorArgument="&lt;wnd app='msedge.exe' cls='#32770' title='Confirmar Guardar como' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V2" Visibility="Interactive">
                                     <uix:TargetAnchorable.Anchors>
-                                      <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
                                         <uix:Target CvElementArea="280, 100, 68, 23" CvTextArea="305, 105, 17, 13" CvTextArgument="No" CvType="Button" DesignTimeRectangle="280, 100, 68, 23" ElementType="Button" FriendlyName="'unchecked'" FullSelectorArgument="&lt;wnd aaname='Confirmar Guardar como' cls='DirectUIHWND' /&gt;&lt;wnd aaname='No' cls='Button' title='&amp;amp;No' /&gt;" FuzzySelectorArgument="&lt;wnd aaname='Confirmar Guardar como' cls='DirectUIHWND' /&gt;&lt;wnd aaname='No' cls='Button' title='&amp;amp;No' check:text='unchecked' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEgAAAAbCAYAAADf98keAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGjSURBVFhH7ZgxTsMwFIZ9gSjnidQb5ByZYGNhajlBvXWDW3gpEgh6AFCFOhh16EbVRsrSBRQ98l6TYich6eLGkj18SvxkD/7021Eey7IMPP/jBfXgBfXQELTcpDCafUJ4twJ2++EM8f2a9l73oQnCCShm8riF9PADeZ47Ae51uthBOFk1JGmC4oc18MWeFgVB4NxzPP+i06M60QRh1NBmtcg10sM3pUhzog0KQW0LXaAKBTrQnGiDUpCrCULOEmQWAQljwBLRUo+AS7V2OSxK0FFEFDFIRLM+lKAKSxJUiBC8kMRB1us+QX8iRMIg4rJRp7EsBOJRLNHTZg57EkQiut4VKSRLkWcAKxNEY5GUF7ZSJyEJCGUdpu0SKbIsQYgEThf2sILsTRByum+qOs6pHzFdmCksTNARySNFUMFJmirOHBYlyG4GT1D12e6ibZ1pzkoQ9oJc/5vvFIS9kPF8S5MrSS49p6876iyqTjRBy82eUoTdNdc6itgsw72jA9WJJgjBCfHsHdj1M7CrJycIb15gxN8acpCGII+OF9SDF9RJBr8b9TEChZ6MawAAAABJRU5ErkJggg==" SearchSteps="Selector, FuzzySelector" />
                                       </scg:List>
                                     </uix:TargetAnchorable.Anchors>
